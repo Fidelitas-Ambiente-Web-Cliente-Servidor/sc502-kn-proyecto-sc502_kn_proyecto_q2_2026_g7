@@ -1,0 +1,45 @@
+:root {
+  --color-fondo: #FAF8F5;
+  --color-texto: #333333;
+  --color-error: #DC3545;
+  --color-linea: #E0E0E0;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.card-autenticacion {
+  border: 1px solid var(--color-linea);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tab {
+  color: #6C757D;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-tab.active {
+  color: #2C3E50 !important;
+  border-bottom: 2px solid #2C3E50;
+  border-radius: 0;
+}
+
+.error-campo {
+  color: var(--color-error);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  min-height: 1.2rem;
+}
+
+.input-invalido {
+  border-color: var(--color-error) !important;
+  background-color: #FDF2F2 !important;
+}
+
+/* Esta clase oculta el formulario de registro al cargar la página */
+.modulo-oculto {
+  display: none !important;
+}
