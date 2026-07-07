@@ -1,0 +1,196 @@
+.btn-emocion {
+  background: white;
+  border: 1px solid var(--color-linea);
+  color: var(--color-texto);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+ 
+.btn-emocion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background: #F4F1EC;
+}
+ 
+.btn-emocion-activo {
+  background: var(--color-primario);
+  color: white;
+  border-color: var(--color-primario);
+}
+ 
+
+.grid-recursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+ 
+
+.card-recurso {
+  background: white;
+  border: 1px solid var(--color-linea);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+ 
+.card-recurso:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(44, 62, 80, 0.12);
+  border-color: var(--color-primario);
+}
+ 
+.card-recurso-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+.card-recurso-icono {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+ 
+.card-recurso-titulo {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primario);
+  margin: 0;
+}
+ 
+.card-recurso-descripcion {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+ 
+/* Insignias por tipo de recurso */
+.badge-tipo {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+ 
+.badge-tipo-tecnica {
+  background: #E7F3FF;
+  color: #0D6EFD;
+}
+ 
+.badge-tipo-guía,
+.badge-tipo-guia {
+  background: #FFF3CD;
+  color: #997404;
+}
+ 
+.badge-tipo-artículo,
+.badge-tipo-articulo {
+  background: #E6F4EA;
+  color: #1E7E34;
+}
+ 
+.guia-respiracion {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--color-linea);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.circulo-respiracion {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #EAF2FF 0%, #CFE2FF 100%);
+  border: 2px solid #0D6EFD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #0D6EFD;
+  transition: transform 4s ease-in-out;
+}
+ 
+.circulo-respiracion.fase-inhala {
+  transform: scale(1.35);
+  transition: transform 4s ease-in-out;
+}
+ 
+.circulo-respiracion.fase-retiene {
+  transform: scale(1.35);
+  transition: transform 0.3s ease;
+}
+ 
+.circulo-respiracion.fase-exhala {
+  transform: scale(0.85);
+  transition: transform 8s ease-in-out;
+}
+ 
+.btn-iniciar-respiracion {
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 600;
+}
+ 
+.btn-iniciar-respiracion:hover:not(:disabled) {
+  opacity: 0.9;
+}
+ 
+.btn-iniciar-respiracion:disabled {
+  background: #A9B4BE;
+  cursor: not-allowed;
+}
+ 
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  text-align: center;
+}
+ 
+.stat-item {
+  background: var(--color-fondo);
+  border: 1px solid var(--color-linea);
+  border-radius: 10px;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+ 
+.stat-valor {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primario);
+}
+ 
+.stat-etiqueta {
+  font-size: 0.78rem;
+  color: #6C757D;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+ 
+
+@media (max-width: 480px) {
+  .grid-recursos {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
