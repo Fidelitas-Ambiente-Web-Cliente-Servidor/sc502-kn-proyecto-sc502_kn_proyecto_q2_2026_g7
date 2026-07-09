@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Emocional Diario | MindLink AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard_style.css" />
+    <link rel="stylesheet" href="css/diario_style.css" />
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="menu.html">MindLink AI</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="menu.html">Módulos</a>
+                <a class="nav-link active" href="diario.html">Diario</a>
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+                <a class="nav-link" href="index.html">Salir</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold" style="color: var(--color-primario);">¿Cómo te sientes hoy?</h2>
+                    <p class="text-muted">Tómate un minuto. Este registro es solo tuyo y nos ayuda a acompañarte mejor.</p>
+                </div>
+
+                <!-- Aquí se inyecta dinámicamente el banner de alerta preventiva cuando corresponde -->
+                <div id="bannerAlerta" class="banner-alerta modulo-oculto" role="alert" aria-live="assertive"></div>
+
+                <div class="card-diario p-4 mb-4">
+                    <form id="formDiario" novalidate>
+
+                        <div class="mb-4">
+                            <label for="diarioEmocion" class="form-label fw-bold">¿Qué emoción predomina hoy?</label>
+                            <select id="diarioEmocion" class="form-select" required>
+                                <option value="" selected disabled>Selecciona una emoción</option>
+                                <option value="Feliz">😊 Feliz</option>
+                                <option value="Calma">😌 Calma</option>
+                                <option value="Ansiedad">😰 Ansiedad</option>
+                                <option value="Estrés">😣 Estrés</option>
+                                <option value="Tristeza">😔 Tristeza</option>
+                                <option value="Enojo">😠 Enojo</option>
+                            </select>
+                            <div id="errorDiarioEmocion" class="error-campo"></div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="diarioEstres" class="form-label fw-bold d-flex justify-content-between">
+                                <span>Nivel de estrés</span>
+                                <span class="valor-rango" id="valorEstres">5</span>
+                            </label>
+                            <input type="range" class="form-range rango-emocional" id="diarioEstres" min="1" max="10" step="1" value="5">
+                            <div class="d-flex justify-content-between rango-etiquetas">
+                                <small>1 · Tranquilo</small>
+                                <small>10 · Extremo</small>
+                            </div>
+                            <div id="errorDiarioEstres" class="error-campo"></div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="diarioAnsiedad" class="form-label fw-bold d-flex justify-content-between">
+                                <span>Nivel de ansiedad</span>
+                                <span class="valor-rango" id="valorAnsiedad">5</span>
+                            </label>
+                            <input type="range" class="form-range rango-emocional" id="diarioAnsiedad" min="1" max="10" step="1" value="5">
+                            <div class="d-flex justify-content-between rango-etiquetas">
+                                <small>1 · Tranquilo</small>
+                                <small>10 · Extremo</small>
+                            </div>
+                            <div id="errorDiarioAnsiedad" class="error-campo"></div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="diarioComentarios" class="form-label fw-bold">
+                                Comentarios <span class="text-muted fw-normal">(opcional)</span>
+                            </label>
+                            <textarea id="diarioComentarios" class="form-control" rows="3" maxlength="500" placeholder="¿Quieres contarnos algo más sobre tu día?"></textarea>
+                            <div id="errorDiarioComentarios" class="error-campo"></div>
+                        </div>
+
+                        <button type="submit" id="btnSubmitDiario" class="btn btn-calma w-100 fw-bold">
+                            Guardar registro
+                        </button>
+
+                        <div id="confirmacionDiario" class="confirmacion-guardado modulo-oculto mt-3"></div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="js/diario.js"></script>
+</body>
+</html>

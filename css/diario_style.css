@@ -1,0 +1,140 @@
+:root {
+  --color-calma: #7C9885;         
+  --color-calma-oscuro: #5F7A68;  
+  --color-calma-suave: #EAF1EC;   
+  --color-alerta-fondo: #FDECEC;
+  --color-alerta-borde: #DC3545;  
+  --color-alerta-texto: #7A2530;
+}
+
+/* ---------- Tarjeta del formulario ---------- */
+.card-diario {
+  background: #ffffff;
+  border: 1px solid var(--color-linea);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(44, 62, 80, 0.06);
+}
+
+/* ---------- Controles ---------- */
+.form-select:focus,
+.form-control:focus {
+  border-color: var(--color-calma);
+  box-shadow: 0 0 0 0.2rem rgba(124, 152, 133, 0.25);
+}
+
+/* Sliders de estres / ansiedad */
+.rango-emocional {
+  accent-color: var(--color-calma);
+}
+
+.rango-emocional::-webkit-slider-runnable-track {
+  background: var(--color-calma-suave);
+  border-radius: 6px;
+  height: 6px;
+}
+
+.rango-emocional::-moz-range-track {
+  background: var(--color-calma-suave);
+  border-radius: 6px;
+  height: 6px;
+}
+
+.rango-etiquetas {
+  color: #8A9A93;
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.valor-rango {
+  display: inline-block;
+  min-width: 2rem;
+  text-align: center;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--color-calma-suave);
+  color: var(--color-calma-oscuro);
+  font-weight: bold;
+}
+
+/* Cuando el nivel entra en zona critica, el contador lo refleja tambien */
+.valor-rango.valor-critico {
+  background: var(--color-alerta-fondo);
+  color: var(--color-alerta-borde);
+}
+
+/*Boton principal*/
+.btn-calma {
+  background-color: var(--color-calma);
+  border-color: var(--color-calma);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-calma:hover,
+.btn-calma:focus {
+  background-color: var(--color-calma-oscuro);
+  border-color: var(--color-calma-oscuro);
+  color: #ffffff;
+}
+
+/*Confirmacion de guardado exitoso*/
+.confirmacion-guardado {
+  background: var(--color-calma-suave);
+  color: var(--color-calma-oscuro);
+  border: 1px solid var(--color-calma);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*Banner de alerta preventiva (inyectado dinamicamente por diario.js)*/
+.banner-alerta {
+  background: var(--color-alerta-fondo);
+  border: 1px solid var(--color-alerta-borde);
+  border-left: 6px solid var(--color-alerta-borde);
+  color: var(--color-alerta-texto);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  animation: aparecerAlerta 0.35s ease-out;
+}
+
+.banner-alerta h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.banner-alerta p {
+  margin-bottom: 0.5rem;
+  font-size: 0.92rem;
+}
+
+.banner-alerta ul {
+  margin-bottom: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+}
+
+.banner-alerta a {
+  color: var(--color-alerta-texto);
+  font-weight: bold;
+}
+
+@keyframes aparecerAlerta {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/*Respeta preferencia de reduccion de movimiento*/
+@media (prefers-reduced-motion: reduce) {
+  .banner-alerta {
+    animation: none;
+  }
+}
